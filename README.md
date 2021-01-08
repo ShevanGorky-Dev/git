@@ -4,7 +4,7 @@
 
 **find . | grep .git | xargs rm -rf**
 
-**step2:** **git clone** url **copy **
+**step2:** **git clone** url **copy**
 
 **step3:** cd directory
 
