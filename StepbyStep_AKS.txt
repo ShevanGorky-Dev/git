@@ -1,0 +1,72 @@
+step1: Create Kubernets Cluster.
+  Name: akscluster1
+  Region: us East us
+
+Step2:  Create SQL Database.
+  Database Name: mhcdb
+  Server name: sqlserver43234
+  location: us East us
+  Server admin login: sqladmin
+  password:  P@ssw0rd1234
+
+Step3: Create Container registry:
+  registry Name: aksreg34324
+  location: East us
+
+step4: edit twee file on Repos:
+  appsettings.json: copy ado.net form Database to the 
+  password databse: P@ssw0rd1234
+
+  mhc-aks.yml: image __ACR/ copy aksreg34324
+
+Step5: Variables edit 
+  ACR: aksreg34324.azure.io
+  Sqlpasswor: P@ssw0rd1234
+  sqlserver: sqlserver34234.database.windows.net
+  sqluser: sqladmin
+  save:
+
+Step6: Create service connection.
+  Select: service principal (manual)
+  subscription ID:
+  subscription name:
+  az ad sp credential reset --id ad5b-521f121a7075
+  voorbeeld: {
+  "appId": "ad5e2f90a2b-521f121a7075",
+  "password": "BQW8Q~w5MlGEx-yr0NTDsiXk2Lag0",
+  "tenant": "0cf65a6b--bde1-5487072f5b18"
+}
+  service principal id: 
+  service principal key:
+  Tenant id: 
+  verification: 
+  service connection name: aks-connection
+  verification save
+
+Step7: MyHealth.AKS.build edit 3 time.
+  Azure subscription: aks-connection
+  Azure Container registry: aksreg34324
+  save
+
+Step8: Releases MyHealth.AKS.Release edit.
+  execute Azure SQL: DacpacTak:
+   azure subscription: aks-connection
+  Create deployments & service iin AKS 
+    azure subscription: aks-connection
+    Resource group: akshadsonlab
+    Kubernets Cluster: akscouter1
+  update image in AKS:
+    azure subscription: aks-connection
+    Kubernets Cluster: akscluster1
+    azure subscription: aks-connection
+    continuous deployment trigger: Enabled
+
+  Step9: Variables Release edit 
+  ACR: aksreg34324.azure.io
+  Sqlpasswor: P@ssw0rd1234
+  sqlserver: sqlserver34234.database.windows.net
+  sqluser: sqladmin
+  save:
+ step10: 
+ 
+ 
