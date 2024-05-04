@@ -9,8 +9,6 @@ Step2:  Create SQL Database.
   Server admin login: sqladmin
   password:  P@ssw0rd1234
 
-hello world!!
-
 Step3: Create Container registry:
   registry Name: aksreg34324
   location: East us
